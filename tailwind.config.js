@@ -1,28 +1,31 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./index.html", "./script.js", "./data.js"],
+  content: ["./*.html", "./*.js", "./src/**/*.{html,js}"],
   theme: {
+    screens: {
+      sm: "360px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1440px",
+    },
     extend: {
-      // Thème NEUTRE de départ.
-      // TODO (Partie 1) : remplacez ces valeurs par les couleurs et les polices de votre univers.
+      // tailwind.config.js -> theme.extend.colors
       colors: {
+        ground: "#E5E2D9", 
+        surface: "#F2EFE9",
+        ink: "#181C24", 
+        muted: "#5B6475", 
+        line: "#D1CCC0", 
         brand: {
-          DEFAULT: "#4B5563",
-          dark: "#374151",
-          light: "#E5E7EB",
+          DEFAULT: "#E65100", 
+          light: "#DDD8CB",
+          dark: "#B23F00",
         },
-        ink: "#14171D",
-        muted: "#545B68",
-        ground: "#EDEFF3",
-        line: "#D5D9E1",
-      },
-      fontFamily: {
-        display: ["Arial", "sans-serif"],
-        body: ["Arial", "sans-serif"],
-        mono: ["Courier New", "monospace"],
-      },
-      borderRadius: {
-        card: "20px",
+        attribute: {
+          vaccine: "#15803D", 
+          data: "#1D4ED8",
+          virus: "#B91C1C",
+        },
       },
     },
   },
