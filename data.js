@@ -23,7 +23,7 @@ const creatures = [
     type: "Virus",
     level: "Rookie",
     stats: { attack: 520, defence: 310, speed: 400 },
-    image: "https://digimon.shadowsmith.com/img/guilmon.jpg",
+    image: "https://digimon.shadowsmith.com/img/apocalymon.jpg",
     description: "Un jeune dragon de type Virus, très joueur mais doté d'une férocité cachée au combat."
   },
   {
