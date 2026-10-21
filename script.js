@@ -1,13 +1,10 @@
-
 // 1- Affichage. Supprimez les cartes écrites à la main et construisez la grille à partir du tableau creatures.
 const grid = document.querySelector("#grid");
 
 const listCards = () => {
-  
   grid.innerHTML = "";
 
   creatures.forEach((creature) => {
-    
     let badgeStyle = "border-green-800 text-attribute-vaccine";
     if (creature.type === "Data") {
       badgeStyle = "border-blue-800 text-attribute-data";
@@ -15,7 +12,6 @@ const listCards = () => {
       badgeStyle = "border-red-800 text-attribute-virus";
     }
 
-  
     const card = `
       <article onclick="cardSelected()" data-id="${creature.id}" class="flex flex-col gap-3 rounded-xl bg-surface p-3 pb-4 border-2 border-line shadow-md hover:-translate-y-1 hover:border-brand transition-all duration-200 cursor-pointer">
         <div class="relative flex h-50 w-full items-center justify-center rounded-xl bg-brand-light border border-line/50 overflow-hidden">
@@ -41,14 +37,10 @@ listCards();
 // 2-Détail. Un clic sur une carte ouvre le panneau de détail : image, description, et statistiques affichées en barres.
 const detailPanel = document.querySelector("#detail");
 
-
 function showDetail(creature) {
   if (!creature || !detailPanel) return;
 
-  const badgeColor = 
-    creature.type === "Vaccine" ? "border-green-800 text-attribute-vaccine" :
-    creature.type === "Data" ? "border-blue-800 text-attribute-data" :
-    "border-red-800 text-attribute-virus";
+  const badgeColor = creature.type === "Vaccine" ? "border-green-800 text-attribute-vaccine" : creature.type === "Data" ? "border-blue-800 text-attribute-data" : "border-red-800 text-attribute-virus";
 
   const atkPercent = Math.min(100, Math.round((creature.stats.attack / 999) * 100));
   const defPercent = Math.min(100, Math.round((creature.stats.defence / 999) * 100));
@@ -98,7 +90,6 @@ function showDetail(creature) {
           </section>
 `;
 
-
   document.getElementById("btn-close-detail").addEventListener("click", () => {
     detailPanel.innerHTML = `
                    <div class="w-16 h-16 rounded-full bg-brand-light flex items-center justify-center text-brand">
@@ -115,7 +106,6 @@ function showDetail(creature) {
   });
 }
 
-
 grid.addEventListener("click", (e) => {
   if (e.target.closest('[data-action="add-team"]')) return;
 
@@ -131,3 +121,42 @@ grid.addEventListener("click", (e) => {
   }
 });
 
+// 3- Recherche. La liste se met à jour pendant la saisie d'un nom (sans tenir compte des majuscules).
+const inputSearch = document.querySelector("#search");
+inputSearch.addEventListener("keyup", () => {
+  // console.log(inputSearch.value)
+  grid.innerHTML = "";
+  creatures.forEach((creature) => {
+    if ((creature.name).toLowerCase().includes(inputSearch.value.toLowerCase())) {
+            // console.log(inputSearch.value + "--- " + creature.name );
+            let badgeStyle = "border-green-800 text-attribute-vaccine";
+          if (creature.type === "Data") {
+            badgeStyle = "border-blue-800 text-attribute-data";
+          } else if (creature.type === "Virus") {
+            badgeStyle = "border-red-800 text-attribute-virus";
+          }
+
+          const card = `
+            <article onclick="cardSelected()" data-id="${creature.id}" class="flex flex-col gap-3 rounded-xl bg-surface p-3 pb-4 border-2 border-line shadow-md hover:-translate-y-1 hover:border-brand transition-all duration-200 cursor-pointer">
+              <div class="relative flex h-50 w-full items-center justify-center rounded-xl bg-brand-light border border-line/50 overflow-hidden">
+                <img src="${creature.image}" alt="${creature.name}" class="rounded-xl p-[1px] object-cover pointer-events-none" />
+                <span class="absolute left-3 top-2 font-mono text-xs text-muted font-bold">${creature.id}</span>
+              </div>
+              <div class="flex items-center justify-between gap-2">
+                <h3 class="font-display text-lg font-bold text-ink">${creature.name}</h3>
+                <span class="rounded-full px-3 py-1 bg-white border ${badgeStyle} text-xs font-bold">${creature.type}</span>
+              </div>
+              <p class="text-xs text-muted">${creature.level} · Attaque ${creature.stats.attack}</p>
+              <button type="button" data-action="add-team" data-id="${creature.id}" class="btn-add-team btn-outline mt-1 text-sm py-2 text-white bg-brand border-none">
+                Ajouter à l'équipe
+              </button>
+            </article>
+          `;
+
+          grid.innerHTML += card;
+        }
+      });
+});
+
+
+// 4- 
