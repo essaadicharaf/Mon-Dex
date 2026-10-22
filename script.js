@@ -127,16 +127,16 @@ inputSearch.addEventListener("keyup", () => {
   // console.log(inputSearch.value)
   grid.innerHTML = "";
   creatures.forEach((creature) => {
-    if ((creature.name).toLowerCase().includes(inputSearch.value.toLowerCase())) {
-            // console.log(inputSearch.value + "--- " + creature.name );
-            let badgeStyle = "border-green-800 text-attribute-vaccine";
-          if (creature.type === "Data") {
-            badgeStyle = "border-blue-800 text-attribute-data";
-          } else if (creature.type === "Virus") {
-            badgeStyle = "border-red-800 text-attribute-virus";
-          }
+    if (creature.name.toLowerCase().includes(inputSearch.value.toLowerCase())) {
+      // console.log(inputSearch.value + "--- " + creature.name );
+      let badgeStyle = "border-green-800 text-attribute-vaccine";
+      if (creature.type === "Data") {
+        badgeStyle = "border-blue-800 text-attribute-data";
+      } else if (creature.type === "Virus") {
+        badgeStyle = "border-red-800 text-attribute-virus";
+      }
 
-          const card = `
+      const card = `
             <article onclick="cardSelected()" data-id="${creature.id}" class="flex flex-col gap-3 rounded-xl bg-surface p-3 pb-4 border-2 border-line shadow-md hover:-translate-y-1 hover:border-brand transition-all duration-200 cursor-pointer">
               <div class="relative flex h-50 w-full items-center justify-center rounded-xl bg-brand-light border border-line/50 overflow-hidden">
                 <img src="${creature.image}" alt="${creature.name}" class="rounded-xl p-[1px] object-cover pointer-events-none" />
@@ -153,31 +153,29 @@ inputSearch.addEventListener("keyup", () => {
             </article>
           `;
 
-          grid.innerHTML += card;
-        }
-      });
+      grid.innerHTML += card;
+    }
+  });
 });
 
-
 // 4- Filtre. Les boutons de type n'affichent que les créatures de ce type ; « Tous » réinitialise le filtre. La recherche et le filtre fonctionnent ensemble.
-const btnVaccine =document.querySelector('[data-type="Vaccine"]');
-const btnData =document.querySelector('[data-type="Data"]');
-const btnVirus =document.querySelector('[data-type="Virus"]');
-const btnAll =document.querySelector('[data-type="all"]');
-
+const btnVaccine = document.querySelector('[data-type="Vaccine"]');
+const btnData = document.querySelector('[data-type="Data"]');
+const btnVirus = document.querySelector('[data-type="Virus"]');
+const btnAll = document.querySelector('[data-type="all"]');
 
 btnVaccine.addEventListener("click", () => {
   grid.innerHTML = "";
   creatures.forEach((creature) => {
     if (creature.type === "Vaccine") {
-            let badgeStyle = "border-green-800 text-attribute-vaccine";
-          if (creature.type === "Data") {
-            badgeStyle = "border-blue-800 text-attribute-data";
-          } else if (creature.type === "Virus") {
-            badgeStyle = "border-red-800 text-attribute-virus";
-          }
+      let badgeStyle = "border-green-800 text-attribute-vaccine";
+      if (creature.type === "Data") {
+        badgeStyle = "border-blue-800 text-attribute-data";
+      } else if (creature.type === "Virus") {
+        badgeStyle = "border-red-800 text-attribute-virus";
+      }
 
-          const card = `
+      const card = `
             <article onclick="cardSelected()" data-id="${creature.id}" class="flex flex-col gap-3 rounded-xl bg-surface p-3 pb-4 border-2 border-line shadow-md hover:-translate-y-1 hover:border-brand transition-all duration-200 cursor-pointer">
               <div class="relative flex h-50 w-full items-center justify-center rounded-xl bg-brand-light border border-line/50 overflow-hidden">
                 <img src="${creature.image}" alt="${creature.name}" class="rounded-xl p-[1px] object-cover pointer-events-none" />
@@ -194,23 +192,22 @@ btnVaccine.addEventListener("click", () => {
             </article>
           `;
 
-          grid.innerHTML += card;
-        }
-      });
-   
+      grid.innerHTML += card;
+    }
+  });
 });
 btnData.addEventListener("click", () => {
   grid.innerHTML = "";
   creatures.forEach((creature) => {
     if (creature.type === "Data") {
-            let badgeStyle = "border-green-800 text-attribute-vaccine";
-          if (creature.type === "Data") {
-            badgeStyle = "border-blue-800 text-attribute-data";
-          } else if (creature.type === "Virus") {
-            badgeStyle = "border-red-800 text-attribute-virus";
-          }
+      let badgeStyle = "border-green-800 text-attribute-vaccine";
+      if (creature.type === "Data") {
+        badgeStyle = "border-blue-800 text-attribute-data";
+      } else if (creature.type === "Virus") {
+        badgeStyle = "border-red-800 text-attribute-virus";
+      }
 
-          const card = `
+      const card = `
             <article onclick="cardSelected()" data-id="${creature.id}" class="flex flex-col gap-3 rounded-xl bg-surface p-3 pb-4 border-2 border-line shadow-md hover:-translate-y-1 hover:border-brand transition-all duration-200 cursor-pointer">
               <div class="relative flex h-50 w-full items-center justify-center rounded-xl bg-brand-light border border-line/50 overflow-hidden">
                 <img src="${creature.image}" alt="${creature.name}" class="rounded-xl p-[1px] object-cover pointer-events-none" />
@@ -227,23 +224,22 @@ btnData.addEventListener("click", () => {
             </article>
           `;
 
-          grid.innerHTML += card;
-        }
-      });
-   
+      grid.innerHTML += card;
+    }
+  });
 });
 btnVirus.addEventListener("click", () => {
   grid.innerHTML = "";
   creatures.forEach((creature) => {
     if (creature.type === "Virus") {
-            let badgeStyle = "border-green-800 text-attribute-vaccine";
-          if (creature.type === "Data") {
-            badgeStyle = "border-blue-800 text-attribute-data";
-          } else if (creature.type === "Virus") {
-            badgeStyle = "border-red-800 text-attribute-virus";
-          }
+      let badgeStyle = "border-green-800 text-attribute-vaccine";
+      if (creature.type === "Data") {
+        badgeStyle = "border-blue-800 text-attribute-data";
+      } else if (creature.type === "Virus") {
+        badgeStyle = "border-red-800 text-attribute-virus";
+      }
 
-          const card = `
+      const card = `
             <article onclick="cardSelected()" data-id="${creature.id}" class="flex flex-col gap-3 rounded-xl bg-surface p-3 pb-4 border-2 border-line shadow-md hover:-translate-y-1 hover:border-brand transition-all duration-200 cursor-pointer">
               <div class="relative flex h-50 w-full items-center justify-center rounded-xl bg-brand-light border border-line/50 overflow-hidden">
                 <img src="${creature.image}" alt="${creature.name}" class="rounded-xl p-[1px] object-cover pointer-events-none" />
@@ -260,23 +256,21 @@ btnVirus.addEventListener("click", () => {
             </article>
           `;
 
-          grid.innerHTML += card;
-        }
-      });
-   
+      grid.innerHTML += card;
+    }
+  });
 });
 btnAll.addEventListener("click", () => {
   grid.innerHTML = "";
   creatures.forEach((creature) => {
-    
-            let badgeStyle = "border-green-800 text-attribute-vaccine";
-          if (creature.type === "Data") {
-            badgeStyle = "border-blue-800 text-attribute-data";
-          } else if (creature.type === "Virus") {
-            badgeStyle = "border-red-800 text-attribute-virus";
-          }
+    let badgeStyle = "border-green-800 text-attribute-vaccine";
+    if (creature.type === "Data") {
+      badgeStyle = "border-blue-800 text-attribute-data";
+    } else if (creature.type === "Virus") {
+      badgeStyle = "border-red-800 text-attribute-virus";
+    }
 
-          const card = `
+    const card = `
             <article onclick="cardSelected()" data-id="${creature.id}" class="flex flex-col gap-3 rounded-xl bg-surface p-3 pb-4 border-2 border-line shadow-md hover:-translate-y-1 hover:border-brand transition-all duration-200 cursor-pointer">
               <div class="relative flex h-50 w-full items-center justify-center rounded-xl bg-brand-light border border-line/50 overflow-hidden">
                 <img src="${creature.image}" alt="${creature.name}" class="rounded-xl p-[1px] object-cover pointer-events-none" />
@@ -293,11 +287,124 @@ btnAll.addEventListener("click", () => {
             </article>
           `;
 
-          grid.innerHTML += card;
-        }
-      );
-   
+    grid.innerHTML += card;
+  });
 });
 
+// 5 - Créer une créature. Le formulaire ajoute une nouvelle créature au tableau et à la grille, après validation par expressions régulières (tableau ci-dessous).
 
+// const form = document.querySelector('#creature-form');
+// const idInput = document.querySelector('input[name="id"]');
+// const nameInput = document.querySelector('input[name="name"]');
+// const typeSelect = document.querySelector('select[name="type"]'); 
+// const levelInput = document.querySelector('select[name="level"]');
+// const stat1Input = document.querySelector('input[name="stat1"]');
+// const stat2Input = document.querySelector('input[name="stat2"]');
+// const stat3Input = document.querySelector('input[name="stat3"]');
+// const imageInput = document.querySelector('input[name="image"]');
+// const descriptionInput = document.querySelector('textarea[name="description"]');
+
+// //
+
+// const REGEX_RULES = {
+//   id: /^#\d{3}$/,                                             
+//   name: /^[A-Za-zÀ-ÿ0-9][A-Za-zÀ-ÿ0-9 .'-]{1,29}$/,           
+//   level: /^[A-Za-zÀ-ÿ0-9 -]{2,20}$/,                          
+//   stat1: /^\d{1,3}$/,                                          
+//   stat2: /^\d{1,3}$/,
+//   stat3: /^\d{1,3}$/,
+//   image: /^https:\/\/\S+\.(png|jpe?g|webp|gif)$/i,            
+//   description: /^[\s\S]{10,200}$/                              
+// };
+// // validate Id
+// function validateId() {
+//   const value = idInput.value.trim();
+//   const errorSpan = idInput.parentElement.querySelector('.error-message');
+//     const isFormatValid = regId.test(value);
+//     const isDuplicate = creatures.some(c => c.id === value);
+
+//   if (!isFormatValid) {
+//     idInput.classList.add('!border-attribute-virus');
+//     idInput.classList.remove('!border-attribute-vaccine');
+//     if (errorSpan) errorSpan.textContent = "Format attendu : # suivi de 3 chiffres (ex: #013).";
+//     console.log("id invalid (format)");
+//     return false;
+//   } else if (isDuplicate) {
+//     idInput.classList.add('!border-attribute-virus');
+//     idInput.classList.remove('!border-attribute-vaccine');
+//     if (errorSpan) errorSpan.textContent = "Ce numéro existe déjà dans le Dex.";
+//     console.log("id invalid (doublon)");
+//     return false;
+//   } else {
+//     idInput.classList.remove('!border-attribute-virus');
+//     idInput.classList.add('!border-attribute-vaccine');
+//     if (errorSpan) errorSpan.textContent = "";
+//     console.log("id valid");
+//     return true;
+//   }
+// }
+
+// idInput.addEventListener("keyup", validateId);
+// idInput.addEventListener("input", () => {
+//   if (idInput.classList.contains('!border-attribute-virus')) {
+//     validateId();
+//   }
+// });
+// //  validate Puissance
+// function validatePuissance() {
+//   const value = stat1.value.trim();
+//   const errorSpan = stat1.parentElement.querySelector('.error-message');
+//     const isFormatValid = regStat.test(value);
+    
+
+//   if (!isFormatValid) {
+//     stat1.classList.add('!border-attribute-virus');
+//     stat1.classList.remove('!border-attribute-vaccine');
+//     if (errorSpan) errorSpan.textContent = "Format attendu : 3 chiffres (ex: 123).";
+//     // console.log("invalid (");
+//     return false;
+//   } else {
+//     stat1.classList.remove('!border-attribute-virus');
+//     stat1.classList.add('!border-attribute-vaccine');
+//     if (errorSpan) errorSpan.textContent = "validate Puissance"; errorSpan.sty
+//     // console.log("id valid");
+//     return true;
+//   }
+// }
+
+// stat1.addEventListener("keyup", validatePuissance);
+// stat1.addEventListener("input", () => {
+//   if (stat1.classList.contains('!border-attribute-virus')) {
+//     validatePuissance();
+//   }
+// });
+
+// //  validate Défense
+// function validateDefense() {
+//   const value = stat2.value.trim();
+//   const errorSpan = stat2.parentElement.querySelector('.error-message');
+//     const isFormatValid = regStat.test(value);
+    
+
+//   if (!isFormatValid) {
+//     stat2.classList.add('!border-attribute-virus');
+//     stat2.classList.remove('!border-attribute-vaccine');
+//     if (errorSpan) errorSpan.textContent = "Format attendu : 3 chiffres (ex: 123).";
+//     // console.log("invalid (");
+//     return false;
+//   } else {
+//     stat2.classList.remove('!border-attribute-virus');
+//     stat2.classList.add('!border-attribute-vaccine');
+//     if (errorSpan) errorSpan.textContent = "validate Puissance"; errorSpan.sty
+//     // console.log("id valid");
+//     return true;
+//   }
+// }
+
+// stat2.addEventListener("keyup", validateDefense);
+// stat2.addEventListener("input", () => {
+//   if (stat2.classList.contains('!border-attribute-virus')) {
+//     validatePuissance();
+//   }
+// });
 

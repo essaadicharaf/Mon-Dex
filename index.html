@@ -93,21 +93,21 @@
           <!-- Numéro -->
           <label class="flex flex-col gap-1.5 text-xs font-bold text-ink"
             >Numéro
-            <input name="id" type="text" placeholder="#013" class="field font-normal placeholder-muted" />
+            <input name="id"  required ="text" placeholder="#013" class="field font-normal placeholder-muted" />
             <span class="error-message text-xs font-normal text-attribute-virus min-h-[16px]"></span>
           </label>
 
           <!-- Nom -->
           <label class="flex flex-col gap-1.5 text-xs font-bold text-ink"
             >Nom
-            <input name="name" type="text" placeholder="Nom du Digimon" class="field font-normal placeholder-muted" />
+            <input name="name" type="text" required placeholder="Nom du Digimon" class="field font-normal placeholder-muted" />
             <span class="error-message text-xs font-normal text-attribute-virus min-h-[16px]"></span>
           </label>
 
           <!-- Attribut -->
           <label class="flex flex-col gap-1.5 text-xs font-bold text-ink"
             >Attribut
-            <select name="type" class="field font-normal text-ink">
+            <select name="type" required class="field font-normal text-ink">
               <option value="" class="bg-surface text-ink">Choisir un attribut</option>
               <option value="Vaccine" class="bg-surface text-ink">Vaccine</option>
               <option value="Data" class="bg-surface text-ink">Data</option>
@@ -119,7 +119,14 @@
           <!-- Niveau -->
           <label class="flex flex-col gap-1.5 text-xs font-bold text-ink"
             >Niveau
-            <input name="level" type="text" placeholder="Rookie, Champion..." class="field font-normal placeholder-muted" />
+            
+            <select name="type" required class="field font-normal text-ink">
+              <option value="" class="bg-surface text-ink">choisir un niveau</option>
+              <option value="Rookie" class="bg-surface text-ink">Rookie</option>
+              <option value="Champion" class="bg-surface text-ink">Champion</option>
+              <option value="Ultimate" class="bg-surface text-ink">Ultimate</option>
+              <option value="Mega" class="bg-surface text-ink">Mega</option>
+            </select>
             <span class="error-message text-xs font-normal text-attribute-virus min-h-[16px]"></span>
           </label>
 
