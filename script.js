@@ -293,118 +293,208 @@ btnAll.addEventListener("click", () => {
 
 // 5 - Créer une créature. Le formulaire ajoute une nouvelle créature au tableau et à la grille, après validation par expressions régulières (tableau ci-dessous).
 
-// const form = document.querySelector('#creature-form');
-// const idInput = document.querySelector('input[name="id"]');
-// const nameInput = document.querySelector('input[name="name"]');
-// const typeSelect = document.querySelector('select[name="type"]'); 
-// const levelInput = document.querySelector('select[name="level"]');
-// const stat1Input = document.querySelector('input[name="stat1"]');
-// const stat2Input = document.querySelector('input[name="stat2"]');
-// const stat3Input = document.querySelector('input[name="stat3"]');
-// const imageInput = document.querySelector('input[name="image"]');
-// const descriptionInput = document.querySelector('textarea[name="description"]');
+const creatureForm = document.querySelector("#creature-form");
+const idInput = document.querySelector('input[name="id"]');
+const nameInput = document.querySelector('input[name="name"]');
+const typeSelect = document.querySelector('select[name="type"]');
+const levelSelect = document.querySelector('select[name="level"]');
+const stat1Input = document.querySelector('input[name="stat1"]');
+const stat2Input = document.querySelector('input[name="stat2"]');
+const stat3Input = document.querySelector('input[name="stat3"]');
+const imageInput = document.querySelector('input[name="image"]');
+const descriptionInput = document.querySelector('textarea[name="description"]');
+const creatureCountEl = document.querySelector("#creature-count");
 
-// //
+const REGEX_RULES = {
+  id: /^#\d{3}$/,
+  name: /^[A-Za-zÀ-ÿ0-9][A-Za-zÀ-ÿ0-9 .'-]{1,29}$/,
+  stat: /^\d{1,3}$/,
+  image: /^https:\/\/\S+\.(png|jpe?g|webp|gif|svg)$/i,
+  description: /^[\s\S]{10,200}$/
+};
 
-// const REGEX_RULES = {
-//   id: /^#\d{3}$/,                                             
-//   name: /^[A-Za-zÀ-ÿ0-9][A-Za-zÀ-ÿ0-9 .'-]{1,29}$/,           
-//   level: /^[A-Za-zÀ-ÿ0-9 -]{2,20}$/,                          
-//   stat1: /^\d{1,3}$/,                                          
-//   stat2: /^\d{1,3}$/,
-//   stat3: /^\d{1,3}$/,
-//   image: /^https:\/\/\S+\.(png|jpe?g|webp|gif)$/i,            
-//   description: /^[\s\S]{10,200}$/                              
-// };
-// // validate Id
-// function validateId() {
-//   const value = idInput.value.trim();
-//   const errorSpan = idInput.parentElement.querySelector('.error-message');
-//     const isFormatValid = regId.test(value);
-//     const isDuplicate = creatures.some(c => c.id === value);
+function validateField(input) {
+  if (!input) return true;
 
-//   if (!isFormatValid) {
-//     idInput.classList.add('!border-attribute-virus');
-//     idInput.classList.remove('!border-attribute-vaccine');
-//     if (errorSpan) errorSpan.textContent = "Format attendu : # suivi de 3 chiffres (ex: #013).";
-//     console.log("id invalid (format)");
-//     return false;
-//   } else if (isDuplicate) {
-//     idInput.classList.add('!border-attribute-virus');
-//     idInput.classList.remove('!border-attribute-vaccine');
-//     if (errorSpan) errorSpan.textContent = "Ce numéro existe déjà dans le Dex.";
-//     console.log("id invalid (doublon)");
-//     return false;
-//   } else {
-//     idInput.classList.remove('!border-attribute-virus');
-//     idInput.classList.add('!border-attribute-vaccine');
-//     if (errorSpan) errorSpan.textContent = "";
-//     console.log("id valid");
-//     return true;
-//   }
-// }
+  const value = input.value.trim();
+  const errorSpan = input.parentElement.querySelector(".error-message");
+  let isValid = true;
+  let errorMessage = "";
 
-// idInput.addEventListener("keyup", validateId);
-// idInput.addEventListener("input", () => {
-//   if (idInput.classList.contains('!border-attribute-virus')) {
-//     validateId();
-//   }
-// });
-// //  validate Puissance
-// function validatePuissance() {
-//   const value = stat1.value.trim();
-//   const errorSpan = stat1.parentElement.querySelector('.error-message');
-//     const isFormatValid = regStat.test(value);
-    
+  switch (input.name) {
+    case "id":
+      if (!REGEX_RULES.id.test(value)) {
+        isValid = false;
+        errorMessage = "Format attendu : # suivi de 3 chiffres (ex: #013).";
+      } else if (creatures.some((c) => c.id.toLowerCase() === value.toLowerCase())) {
+        isValid = false;
+        errorMessage = "Ce numéro existe déjà dans le Dex.";
+      }
+      break;
 
-//   if (!isFormatValid) {
-//     stat1.classList.add('!border-attribute-virus');
-//     stat1.classList.remove('!border-attribute-vaccine');
-//     if (errorSpan) errorSpan.textContent = "Format attendu : 3 chiffres (ex: 123).";
-//     // console.log("invalid (");
-//     return false;
-//   } else {
-//     stat1.classList.remove('!border-attribute-virus');
-//     stat1.classList.add('!border-attribute-vaccine');
-//     if (errorSpan) errorSpan.textContent = "validate Puissance"; errorSpan.sty
-//     // console.log("id valid");
-//     return true;
-//   }
-// }
+    case "name":
+      if (!REGEX_RULES.name.test(value)) {
+        isValid = false;
+        errorMessage = "Le nom doit contenir entre 2 et 30 caractères.";
+      }
+      break;
 
-// stat1.addEventListener("keyup", validatePuissance);
-// stat1.addEventListener("input", () => {
-//   if (stat1.classList.contains('!border-attribute-virus')) {
-//     validatePuissance();
-//   }
-// });
+    case "type":
+      if (value === "") {
+        isValid = false;
+        errorMessage = "Veuillez choisir un attribut.";
+      }
+      break;
 
-// //  validate Défense
-// function validateDefense() {
-//   const value = stat2.value.trim();
-//   const errorSpan = stat2.parentElement.querySelector('.error-message');
-//     const isFormatValid = regStat.test(value);
-    
+    case "level":
+      if (value === "") {
+        isValid = false;
+        errorMessage = "Veuillez choisir un niveau.";
+      }
+      break;
 
-//   if (!isFormatValid) {
-//     stat2.classList.add('!border-attribute-virus');
-//     stat2.classList.remove('!border-attribute-vaccine');
-//     if (errorSpan) errorSpan.textContent = "Format attendu : 3 chiffres (ex: 123).";
-//     // console.log("invalid (");
-//     return false;
-//   } else {
-//     stat2.classList.remove('!border-attribute-virus');
-//     stat2.classList.add('!border-attribute-vaccine');
-//     if (errorSpan) errorSpan.textContent = "validate Puissance"; errorSpan.sty
-//     // console.log("id valid");
-//     return true;
-//   }
-// }
+    case "stat1":
+    case "stat2":
+    case "stat3":
+      const statNum = parseInt(value, 10);
+      if (!REGEX_RULES.stat.test(value) || isNaN(statNum) || statNum < 0 || statNum > 999) {
+        isValid = false;
+        errorMessage = "Nombre entier requis entre 0 et 999.";
+      }
+      break;
 
-// stat2.addEventListener("keyup", validateDefense);
-// stat2.addEventListener("input", () => {
-//   if (stat2.classList.contains('!border-attribute-virus')) {
-//     validatePuissance();
-//   }
-// });
+    case "image":
+      if (!REGEX_RULES.image.test(value)) {
+        isValid = false;
+        errorMessage = "Lien https valide requis (.png, .jpg, .webp, .svg).";
+      }
+      break;
 
+    case "description":
+      if (!REGEX_RULES.description.test(value)) {
+        isValid = false;
+        errorMessage = "La description doit contenir entre 10 et 200 caractères.";
+      }
+      break;
+  }
+
+  // Application des styles d'état et messages contextuels
+  if (!isValid) {
+    input.classList.add("!border-attribute-virus");
+    input.classList.remove("!border-attribute-vaccine");
+    if (errorSpan) errorSpan.textContent = errorMessage;
+  } else {
+    input.classList.remove("!border-attribute-virus");
+    input.classList.add("!border-attribute-vaccine");
+    if (errorSpan) errorSpan.textContent = "";
+  }
+
+  return isValid;
+}
+
+
+const formFields = [
+  idInput,
+  nameInput,
+  typeSelect,
+  levelSelect,
+  stat1Input,
+  stat2Input,
+  stat3Input,
+  imageInput,
+  descriptionInput
+];
+
+
+formFields.forEach((field) => {
+  if (!field) return;
+
+ 
+  field.addEventListener("keyup", () => {
+    validateField(field);
+  });
+
+  field.addEventListener("input", () => {
+    if (field.classList.contains("!border-attribute-virus")) {
+      validateField(field);
+    }
+  });
+
+  if (field.tagName === "SELECT") {
+    field.addEventListener("change", () => {
+      validateField(field);
+    });
+  }
+});
+
+if (creatureForm) {
+  creatureForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    let isAllValid = true;
+    formFields.forEach((field) => {
+      if (!validateField(field)) {
+        isAllValid = false;
+      }
+    });
+
+    if (!isAllValid) {
+      alert("Veuillez corriger les champs invalides avant d'ajouter le Digimon.");
+      return;
+    }
+
+    const newCreature = {
+      id: idInput.value.trim(),
+      name: nameInput.value.trim(),
+      type: typeSelect.value,
+      level: levelSelect.value.trim(),
+      stats: {
+        attack: parseInt(stat1Input.value.trim(), 10),
+        defence: parseInt(stat2Input.value.trim(), 10),
+        speed: parseInt(stat3Input.value.trim(), 10)
+      },
+      image: imageInput.value.trim(),
+      description: descriptionInput.value.trim()
+    };
+
+    creatures.push(newCreature);
+
+    if (typeof STORAGE_KEY !== "undefined") {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(creatures));
+    }
+
+    if (typeof applyFilters === "function") {
+      applyFilters();
+    } else if (typeof listCards === "function") {
+      listCards();
+    }
+
+    if (creatureCountEl) {
+      creatureCountEl.textContent = String(creatures.length).padStart(2, "0");
+    }
+
+    if (typeof showDetail === "function") {
+      showDetail(newCreature);
+    }
+
+    creatureForm.reset();
+    formFields.forEach((field) => {
+      field.classList.remove("!border-attribute-vaccine", "!border-attribute-virus");
+      const errorSpan = field.parentElement.querySelector(".error-message");
+      if (errorSpan) errorSpan.textContent = "";
+    });
+
+    alert(`Le Digimon ${newCreature.name} (${newCreature.id}) a été créé et sauvegardé avec succès !`);
+  });
+
+ 
+  creatureForm.addEventListener("reset", () => {
+    setTimeout(() => {
+      formFields.forEach((field) => {
+        field.classList.remove("!border-attribute-vaccine", "!border-attribute-virus");
+        const errorSpan = field.parentElement.querySelector(".error-message");
+        if (errorSpan) errorSpan.textContent = "";
+      });
+    }, 10);
+  });
+}
