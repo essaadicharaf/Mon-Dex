@@ -15,7 +15,8 @@ module.exports = {
         surface: "#F2EFE9",
         ink: "#181C24", 
         muted: "#5B6475", 
-        line: "#D1CCC0", 
+        line: "#264653", 
+       
         brand: {
           DEFAULT: "#E65100", 
           light: "#DDD8CB",

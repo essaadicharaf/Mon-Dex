@@ -1,5 +1,5 @@
 
-//1
+//
 let team = [];
 
 function getTeamButtonState(creatureId) {
@@ -40,7 +40,7 @@ function updateTeamButtons() {
   });
 }
 
-//2
+//1
 const grid = document.querySelector("#grid");
 const creatureCount = document.querySelector("#creature-count");
 
@@ -54,7 +54,7 @@ function renderGrid(list = creatures) {
 
   if (list.length === 0) {
     grid.innerHTML = `
-      <p class="col-span-full py-12 text-center bg-white text-muted text-sm border-2 border-dashed border-line rounded-xl">
+      <p class="col-span-full py-12 text-center bg-white text-muted text-base border-2  border-line rounded-xl">
         Aucun Digimon ne correspond à votre recherche.
       </p>
     `;
@@ -74,7 +74,7 @@ function renderGrid(list = creatures) {
     const disabledStyle = isDisabled ? "opacity-50 cursor-not-allowed" : "hover:opacity-90";
 
     const cardHTML = `
-      <article data-id="${creature.id}" class="flex flex-col gap-3 rounded-xl bg-surface p-3 pb-4 border-2 border-line shadow-md hover:-translate-y-1 hover:border-brand transition-all duration-200 cursor-pointer">
+      <article data-id="${creature.id}" class="flex flex-col gap-3 rounded-xl bg-surface p-3 pb-4 border-2 border-3 border-[#264653] shadow-md hover:-translate-y-1 hover:border-brand transition-all duration-200 cursor-pointer">
         <div class="relative flex h-50 w-full items-center justify-center rounded-xl bg-brand-light border border-line/50 overflow-hidden">
           <img src="${creature.image}" alt="${creature.name}" class="rounded-xl p-[1px] object-cover pointer-events-none" />
           <span class="absolute left-3 top-2 font-mono text-xs text-muted font-bold">${creature.id}</span>
@@ -137,13 +137,11 @@ function showDetail(creature) {
   const atkPercent = Math.min(100, Math.round((creature.stats.attack / 999) * 100));
   const defPercent = Math.min(100, Math.round((creature.stats.defence / 999) * 100));
   const spdPercent = Math.min(100, Math.round((creature.stats.speed / 999) * 100));
-
-  // فحص حالة الزر داخل لوحة التفاصيل
   const { isDisabled, text } = getTeamButtonState(creature.id);
   const disabledStyle = isDisabled ? "opacity-50 cursor-not-allowed" : "hover:opacity-90";
 
   detailPanel.className =
-    "flex flex-col gap-4 rounded-xl border border-line bg-surface p-6 shadow-sm w-full";
+    "flex flex-col gap-4 rounded-xl border border-line bg-surface p-8 shadow-sm w-full";
 
   detailPanel.innerHTML = `
     <div class="flex items-center justify-between">
@@ -153,8 +151,8 @@ function showDetail(creature) {
       </button>
     </div>
 
-    <div class="flex h-56 w-full items-center justify-center rounded-xl bg-brand-light border border-line/40 overflow-hidden">
-      <img src="${creature.image}" alt="${creature.name}" class="h-full object-contain p-3 pointer-events-none" />
+    <div class="flex h-auto w-full items-center justify-center rounded-xl bg-brand-light border border-line/40 overflow-hidden">
+      <img src="${creature.image}" alt="${creature.name}" class=" rounded-xl h-full w-full object-cover p-1.5 pointer-events-none" />
     </div>
 
     <div class="flex items-center justify-between">
@@ -196,7 +194,7 @@ function showDetail(creature) {
       data-action="add-team" 
       data-id="${creature.id}" 
       ${isDisabled ? "disabled" : ""} 
-      class="btn-primary w-full py-2.5 text-sm font-bold mt-2 transition-all ${disabledStyle}">
+      class="btn-primary w-full py-2.5 text-sm font-bold mt-2  ${disabledStyle}">
       ${text}
     </button>
   `;
@@ -351,7 +349,7 @@ const formFields = [
 formFields.forEach((field) => {
   if (!field) return;
 
-  field.addEventListener("blur", () => {
+  field.addEventListener("keyup", () => {
     validateField(field);
   });
 
@@ -397,10 +395,12 @@ if (creatureForm) {
       image: imageInput.value.trim(),
       description: descriptionInput.value.trim()
     };
-
-    creatures.unshift(newCreature);
+    // add local Storage
+    window.localStorage.setItem("newCreature", JSON.stringify(newCreature));
+    creatures.push(newCreature);
     applySearchAndFilter();
-    showDetail(newCreature);
+    showDetail(JSON.parse(localStorage.getItem("newCreature")));
+    
 
     creatureForm.reset();
     formFields.forEach((field) => {
@@ -446,7 +446,7 @@ function renderTeam() {
         (creature) => `
       <div class="flex items-center justify-between gap-3 p-2 bg-ground rounded-xl border border-line">
         <div class="flex items-center gap-2 min-w-0">
-          <img src="${creature.image}" alt="${creature.name}" class="w-10 h-10 object-contain rounded-lg bg-brand-light p-1" />
+          <img src="${creature.image}" alt="${creature.name}" class="w-10 h-10 object-cover rounded-lg bg-brand-light p-1" />
           <div class="truncate">
             <p class="text-xs font-bold text-ink truncate">${creature.name}</p>
             <p class="font-mono text-[10px] text-muted">${creature.id} · ${creature.type}</p>
@@ -463,7 +463,7 @@ function renderTeam() {
       </div>
     `
       )
-      .join("");
+      .join(" ");
   }
 
  
@@ -472,13 +472,13 @@ function renderTeam() {
 
 function addToTeam(creatureId) {
   if (team.length >= 6) {
-    alert("Action refusée : Votre équipe est déjà complète (6 Digimon au maximum).");
+    // alert("Action refusée : Votre équipe est déjà complète (6 Digimon au maximum).");
     return;
   }
 
   const isAlreadyInTeam = team.some((c) => c.id === creatureId);
   if (isAlreadyInTeam) {
-    alert("Action refusée : Ce Digimon fait déjà partie de votre équipe (doublon interdit).");
+    // alert("Action refusée : Ce Digimon fait déjà partie de votre équipe (doublon interdit).");
     return;
   }
 

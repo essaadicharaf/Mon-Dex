@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./dist/output.css" />
   </head>
   <body class="bg-ground font-body text-ink min-h-screen antialiased">
-    <header class="bg-surface border-b border-line text-ink fixed top-0 z-40 w-full">
+    <header class="bg-[#38686A] border-b  border-line text-white fixed top-0 z-40 w-full">
       <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-4 sm:px-8 py-4 ms:mb-5">
         <div class="flex items-center gap-3">
           <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-brand text-white shadow-md">
@@ -19,29 +19,29 @@
           </div>
           <div>
             <p class="font-display text-2xl font-extrabold leading-none tracking-tight">Mon Dex</p>
-            <p class="text-xs sm:text-sm text-muted">Digimon · <span id="creature-count">06</span> créatures</p>
+            <p class="text-xs sm:text-sm text-white">Digimon · <span id="creature-count">06</span> créatures</p>
           </div>
         </div>
 
         <nav aria-label="Navigation principale" class="flex sm:flex-wrap sm:justify-end items-center gap-2 overflow-x-auto pb-1 max-w-full scrollbar-none text-xs sm:text-sm sm:">
-          <a href="#grid" class="rounded-full bg-line/60 px-3.5 ms:px-1 py-1.5 border-2 border-solid border-ink ms:py-0.5 shrink-0 text-ink hover:bg-line transition-colors focus:outline-none focus:ring-2 focus:ring-brand">Créatures</a>
-          <a href="#team" class="rounded-full bg-line/60 px-3.5 py-1.5 shrink-0 border-2 border-solid border-ink text-ink hover:bg-line transition-colors focus:outline-none focus:ring-2 focus:ring-brand">Mon équipe · <span id="team-count">0</span>/6</a>
+          <a href="#grid" class="rounded-full bg-[#38686A] px-3.5 ms:px-1 py-1.5 border-2 border-solid border-brand ms:py-0.5 shrink-0 text-white hover:bg-line transition-colors focus:outline-none focus:ring-2 focus:ring-brand">Créatures</a>
+          <a href="#team" class="rounded-full bg-[#38686A] px-3.5 py-1.5 shrink-0 border-2 border-solid border-brand text-white hover:bg-line transition-colors focus:outline-none focus:ring-2 focus:ring-brand">Mon équipe · <span id="team-count">0</span>/6</a>
           <a href="#create" class="rounded-2xl bg-brand px-3.5 py-[10px] shrink-0 text-center font-bold text-white hover:opacity-90 transition-opacity focus:outline-none focus:ring-2 focus:ring-brand">+ Nouvelle créature</a>
         </nav>
       </div>
     </header>
 
     <main class="mx-auto sm:mt-[50px] flex max-w-7xl flex-col gap-8 px-4 sm:px-8 py-8">
-      <section aria-label="Recherche et filtres" class="flex flex-col gap-4">
+      <section aria-label="Recherche et filtres" class="flex flex-col gap-8">
         <div class="flex flex-wrap items-end justify-between gap-4">
           <h1 class="font-display text-3xl sm:text-4xl font-extrabold text-ink tracking-tight">Trouver un Digimon</h1>
           <label class="flex w-full md:max-w-md flex-col gap-1.5 text-xs sm:text-sm font-bold text-ink">
             Rechercher par nom
-            <input id="search" type="search" placeholder="ex. Agumon" class="field font-normal placeholder-muted ring-2 ring-line focus:ring-2 focus:ring-brand" />
+            <input id="search" type="search" placeholder="ex. Agumon" class="field font-normal placeholder-muted border-3 border-[#264653]  focus:ring-2 focus:ring-brand" />
           </label>
         </div>
 
-        <div id="filters" role="group" aria-label="Filtrer par attribut" class="flex flex-wrap items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+        <div id="filters" role="group" aria-label="Filtrer par attribut" class="flex flex-wrap items-center gap-2 overflow-x-auto pb-2  scrollbar-none">
           <button type="button" data-type="all" class="chip bg-brand border-brand text-white shrink-0 focus:ring-2 focus:ring-brand">Tous</button>
           <button type="button" data-type="Vaccine" class="chip shrink-0 hover:border-attribute-vaccine focus:ring-2 focus:ring-attribute-vaccine">Vaccine</button>
           <button type="button" data-type="Data" class="chip shrink-0 hover:border-attribute-data focus:ring-2 focus:ring-attribute-data">Data</button>
@@ -92,21 +92,21 @@
           <!-- Numéro -->
           <label class="flex flex-col gap-1.5 text-xs font-bold text-ink">
             Numéro
-            <input name="id" type="text" required placeholder="#013" class="field font-normal placeholder-muted" />
+            <input name="id" type="text" required placeholder="#013" class="field font-normal placeholder-muted border-3 border-[#264653]" />
             <span class="error-message text-xs font-normal text-attribute-virus min-h-[16px]"></span>
           </label>
 
           <!-- Nom -->
           <label class="flex flex-col gap-1.5 text-xs font-bold text-ink">
             Nom
-            <input name="name" type="text" required placeholder="Nom du Digimon" class="field font-normal placeholder-muted" />
+            <input name="name" type="text" required placeholder="Nom du Digimon" class="field font-normal placeholder-muted border-3 border-[#264653]" />
             <span class="error-message text-xs font-normal text-attribute-virus min-h-[16px]"></span>
           </label>
 
           <!-- Attribut -->
           <label class="flex flex-col gap-1.5 text-xs font-bold text-ink">
             Attribut
-            <select name="type" required class="field font-normal text-ink">
+            <select name="type" required class="field font-normal text-ink border-3 border-[#264653]">
               <option value="" class="bg-surface text-ink">Choisir un attribut</option>
               <option value="Vaccine" class="bg-surface text-ink">Vaccine</option>
               <option value="Data" class="bg-surface text-ink">Data</option>
@@ -115,10 +115,10 @@
             <span class="error-message text-xs font-normal text-attribute-virus min-h-[16px]"></span>
           </label>
 
-          <!-- Niveau (تم تصحيح name="level") -->
+          <!-- Niveau  -->
           <label class="flex flex-col gap-1.5 text-xs font-bold text-ink">
             Niveau
-            <select name="level" required class="field font-normal text-ink">
+            <select name="level" required class="field font-normal text-ink border-3 border-[#264653]">
               <option value="" class="bg-surface text-ink">Choisir un niveau</option>
               <option value="Rookie" class="bg-surface text-ink">Rookie</option>
               <option value="Champion" class="bg-surface text-ink">Champion</option>
@@ -131,35 +131,35 @@
           <!-- Statistique 1 -->
           <label class="flex flex-col gap-1.5 text-xs font-bold text-ink">
             Puissance (0 à 999)
-            <input name="stat1" type="text" placeholder="ex. 450" class="field font-normal placeholder-muted" />
+            <input name="stat1" type="text" placeholder="ex. 450" class="field font-normal placeholder-muted border-3 border-[#264653]" />
             <span class="error-message text-xs font-normal text-attribute-virus min-h-[16px]"></span>
           </label>
 
           <!-- Statistique 2 -->
           <label class="flex flex-col gap-1.5 text-xs font-bold text-ink">
             Défense (0 à 999)
-            <input name="stat2" type="text" placeholder="ex. 320" class="field font-normal placeholder-muted" />
+            <input name="stat2" type="text" placeholder="ex. 320" class="field font-normal placeholder-muted border-3 border-[#264653]" />
             <span class="error-message text-xs font-normal text-attribute-virus min-h-[16px]"></span>
           </label>
 
           <!-- Statistique 3 -->
           <label class="flex flex-col gap-1.5 text-xs font-bold text-ink">
             Vitesse (0 à 999)
-            <input name="stat3" type="text" placeholder="ex. 380" class="field font-normal placeholder-muted" />
+            <input name="stat3" type="text" placeholder="ex. 380" class="field font-normal placeholder-muted border-3 border-[#264653]" />
             <span class="error-message text-xs font-normal text-attribute-virus min-h-[16px]"></span>
           </label>
 
           <!-- Lien Image -->
           <label class="flex flex-col gap-1.5 text-xs font-bold text-ink">
             Lien de l'image
-            <input name="image" type="text" placeholder="https://…/image.png" class="field font-normal placeholder-muted" />
+            <input name="image" type="text" placeholder="https://…/image.png" class="field font-normal placeholder-muted border-3 border-[#264653]" />
             <span class="error-message text-xs font-normal text-attribute-virus min-h-[16px]"></span>
           </label>
 
           <!-- Description -->
           <label class="flex flex-col gap-1.5 text-xs font-bold text-ink col-span-full">
             Description
-            <textarea name="description" rows="3" placeholder="10 à 200 caractères" class="w-full rounded-xl border-2 border-line bg-surface p-3 text-sm text-ink font-normal placeholder-muted outline-none transition-all duration-200 focus:border-brand"></textarea>
+            <textarea name="description" rows="3" placeholder="10 à 200 caractères" class="w-full rounded-xl border-2  border-3 border-[#264653] bg-surface p-3 text-sm text-ink font-normal placeholder-muted outline-none transition-all duration-200 focus:border-brand"></textarea>
             <span class="error-message text-xs font-normal text-attribute-virus min-h-[16px]"></span>
           </label>
 
