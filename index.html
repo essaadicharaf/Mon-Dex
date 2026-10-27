@@ -51,131 +51,22 @@
 
       <div class="flex flex-col lg:flex-row gap-8 items-start w-full">
         <section id="grid" aria-label="Créatures" class="grid w-full min-w-0 flex-1 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          <!-- Carte 1 -->
-          <article data-id="#001" class="flex flex-col gap-3 rounded-xl bg-surface p-3 pb-4 border-2 border-line shadow-md hover:-translate-y-1 hover:border-brand hover:border-3 transition-all duration-200 cursor-pointer">
-            <div class="relative flex h-50 w-full items-center justify-center rounded-xl bg-brand-light border border-line/50 overflow-hidden">
-              <img src="https://digimon.shadowsmith.com/img/agumon.jpg" alt="Agumon" class="rounded-xl p-[1px] object-cover pointer-events-none" />
-              <span class="absolute left-3 top-2 font-mono text-xs text-muted font-bold">#001</span>
-            </div>
-            <div class="flex items-center justify-between gap-2">
-              <h3 class="font-display text-lg font-bold text-ink">Agumon</h3>
-              <span class="rounded-full px-3 py-1 bg-white border border-green-800 text-attribute-vaccine text-xs font-bold">Vaccine</span>
-            </div>
-            <p class="text-xs text-muted">Rookie · Attaque 450</p>
-            <button type="button" class="btn-add-team btn-outline mt-1 text-sm py-2 text-white bg-brand border-none">Ajouter à l'équipe</button>
-          </article>
-
-          <!-- Carte 2 -->
-          <article data-id="#002" class="flex flex-col gap-3 rounded-xl bg-surface p-3 pb-4 border-2 border-line shadow-md hover:-translate-y-1 hover:border-brand hover:border-3 transition-all duration-200 cursor-pointer">
-            <div class="relative flex h-50 items-center justify-center rounded-xl bg-brand-light border border-line/50 overflow-hidden">
-              <img src="https://digimon.shadowsmith.com/img/gabumon.jpg" alt="Gabumon" class="rounded-xl p-[1px] object-cover pointer-events-none" />
-              <span class="absolute left-3 top-2 font-mono text-xs text-muted font-bold">#002</span>
-            </div>
-            <div class="flex items-center justify-between gap-2">
-              <h3 class="font-display text-lg font-bold text-ink">Gabumon</h3>
-              <span class="rounded-full px-3 py-1 bg-white border border-blue-800 text-attribute-data text-xs font-bold">Data</span>
-            </div>
-            <p class="text-xs text-muted">Rookie · Attaque 410</p>
-            <button type="button" class="btn-add-team btn-outline mt-1 text-sm py-2 text-white bg-brand border-none">Ajouter à l'équipe</button>
-          </article>
-
-          <!-- Carte 3 -->
-          <article data-id="#003" class="flex flex-col gap-3 rounded-xl bg-surface p-3 pb-4 border-2 border-line shadow-md hover:-translate-y-1 hover:border-brand hover:border-3 transition-all duration-200 cursor-pointer">
-            <div class="relative flex h-50 items-center justify-center rounded-xl bg-brand-light border border-line/50 overflow-hidden">
-              <img src="https://digimon.shadowsmith.com/img/apocalymon.jpg" alt="Guilmon" class="rounded-xl p-[1px] object-cover pointer-events-none" />
-              <span class="absolute left-3 top-2 font-mono text-xs text-muted font-bold">#003</span>
-            </div>
-            <div class="flex items-center justify-between gap-2">
-              <h3 class="font-display text-lg font-bold text-ink">Guilmon</h3>
-              <span class="rounded-full px-3 py-1 bg-white border border-red-800 text-attribute-virus text-xs font-bold">Virus</span>
-            </div>
-            <p class="text-xs text-muted">Rookie · Attaque 520</p>
-            <button type="button" class="btn-add-team btn-outline mt-1 text-sm py-2 text-white bg-brand border-none">Ajouter à l'équipe</button>
-          </article>
-
-          <!-- Carte 4 -->
-          <article data-id="#004" class="flex flex-col gap-3 rounded-xl bg-surface p-3 pb-4 border-2 border-line shadow-md hover:-translate-y-1 hover:border-brand hover:border-3 transition-all duration-200 cursor-pointer">
-            <div class="relative flex h-50 items-center justify-center rounded-xl bg-brand-light border border-line/50 overflow-hidden">
-              <img src="https://digimon.shadowsmith.com/img/patamon.jpg" alt="Patamon" class="rounded-xl p-[1px] object-cover pointer-events-none" />
-              <span class="absolute left-3 top-2 font-mono text-xs text-muted font-bold">#004</span>
-            </div>
-            <div class="flex items-center justify-between gap-2">
-              <h3 class="font-display text-lg font-bold text-ink">Patamon</h3>
-              <span class="rounded-full px-3 py-1 bg-white border border-blue-800 text-attribute-data text-xs font-bold">Data</span>
-            </div>
-            <p class="text-xs text-muted">Rookie · Attaque 350</p>
-            <button type="button" class="btn-add-team btn-outline mt-1 text-sm py-2 text-white bg-brand border-none">Ajouter à l'équipe</button>
-          </article>
-
-          <!-- Carte 5 -->
-          <article data-id="#005" class="flex flex-col gap-3 rounded-xl bg-surface p-3 pb-4 border-2 border-line shadow-md hover:-translate-y-1 hover:border-brand hover:border-3 transition-all duration-200 cursor-pointer">
-            <div class="relative flex h-50 items-center justify-center rounded-xl bg-brand-light border border-line/50 overflow-hidden">
-              <img src="https://digimon.shadowsmith.com/img/greymon.jpg" alt="Greymon" class="rounded-xl p-[1px] object-cover pointer-events-none" />
-              <span class="absolute left-3 top-2 font-mono text-xs text-muted font-bold">#005</span>
-            </div>
-            <div class="flex items-center justify-between gap-2">
-              <h3 class="font-display text-lg font-bold text-ink">Greymon</h3>
-              <span class="rounded-full px-3 py-1 bg-white border border-green-800 text-attribute-vaccine text-xs font-bold">Vaccine</span>
-            </div>
-            <p class="text-xs text-muted">Champion · Attaque 680</p>
-            <button type="button" class="btn-add-team btn-outline mt-1 text-sm py-2 text-white bg-brand border-none">Ajouter à l'équipe</button>
-          </article>
-
-          <!-- Carte 6 -->
-          <article data-id="#006" class="flex flex-col gap-3 rounded-xl bg-surface p-3 pb-4 border-2 border-line shadow-md hover:-translate-y-1 hover:border-brand hover:border-3 transition-all duration-200 cursor-pointer">
-            <div class="relative flex h-50 items-center justify-center rounded-xl bg-brand-light border border-line/50 overflow-hidden">
-              <img src="https://digimon.shadowsmith.com/img/garurumon.jpg" alt="Garurumon" class="rounded-xl p-[1px] object-cover pointer-events-none" />
-              <span class="absolute left-3 top-2 font-mono text-xs text-muted font-bold">#006</span>
-            </div>
-            <div class="flex items-center justify-between gap-2">
-              <h3 class="font-display text-lg font-bold text-ink">Garurumon</h3>
-              <span class="rounded-full px-3 py-1 bg-white border border-green-800 text-attribute-vaccine text-xs font-bold">Vaccine</span>
-            </div>
-            <p class="text-xs text-muted">Champion · Attaque 640</p>
-            <button type="button" class="btn-add-team btn-outline mt-1 text-sm py-2 text-white bg-brand border-none">Ajouter à l'équipe</button>
-          </article>
+          <!-- cards  -->
         </section>
 
         <aside class="flex w-full lg:w-[420px] sm:w-full shrink-0 flex-col gap-6 rounded-xl">
-          <section id="detail" aria-label="Détail de la créature" class="flex flex-col gap-4 rounded-xl border-2 border-line bg-surface p-4 sm:p-6 w-full max-w-full ms:max-w-60 overflow-hidden shadow-lg">
-            <div class="flex items-center justify-between">
-              <span class="font-mono text-sm text-muted">#001 · Détail</span>
-              <button type="button" aria-label="Fermer le détail" class="btn-outline w-9 h-9 flex items-center justify-center p-0">✕</button>
+          <!-- PANNEAU DE DÉTAIL -->
+          <section id="detail" aria-label="Détail de la créature" class="flex flex-col items-center justify-center text-center gap-4 rounded-xl border-2 border-dashed border-line bg-surface p-8 min-h-[360px] shadow-sm">
+            <div class="w-16 h-16 rounded-full bg-brand-light flex items-center justify-center text-brand">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+              </svg>
             </div>
-            <div class="flex sm:max-h-60 sm:max-w-60 lg:min-h-80 lg:min-w-80 lg:ml-5 ms:ml-5 items-end justify-center rounded-2xl bg-brand-light border border-line/40 overflow-hidden">
-              <img src="https://digimon.shadowsmith.com/img/agumon.jpg" alt="Agumon" class="rounded-xl p-[1px] object-cover pointer-events-none" />
+            <div>
+              <h3 class="font-display text-base font-bold text-ink">Aucun Digimon sélectionné</h3>
+              <p class="text-xs text-muted m-1 max-w-[220px]">Cliquez sur une carte de la grille pour afficher ses détails et ses statistiques.</p>
             </div>
-            <div class="flex items-center justify-between">
-              <h2 class="font-display text-2xl font-extrabold text-ink">Agumon</h2>
-              <span class="rounded-full px-3 py-1.5 bg-white border border-green-800 text-attribute-vaccine text-xs font-bold">Vaccine</span>
-            </div>
-            <p class="text-muted text-xs sm:text-sm leading-relaxed">Un Digimon reptile capable de cracher des boules de feu dévastatrices sur ses ennemis.</p>
-
-            <div class="flex flex-col gap-2.5 text-xs">
-              <div class="grid grid-cols-[70px_1fr_40px] items-center gap-2">
-                <span class="font-bold text-ink">Puissance</span>
-                <div class="h-2.5 rounded-full bg-ground overflow-hidden border border-line">
-                  <div class="h-full rounded-full bg-brand" style="width: 45%"></div>
-                </div>
-                <span class="text-right font-mono font-bold text-ink">450</span>
-              </div>
-              <div class="grid grid-cols-[70px_1fr_40px] items-center gap-2">
-                <span class="font-bold text-ink">Défense</span>
-                <div class="h-2.5 rounded-full bg-ground overflow-hidden border border-line">
-                  <div class="h-full rounded-full bg-attribute-data" style="width: 32%"></div>
-                </div>
-                <span class="text-right font-mono font-bold text-ink">320</span>
-              </div>
-              <div class="grid grid-cols-[70px_1fr_40px] items-center gap-2">
-                <span class="font-bold text-ink">Vitesse</span>
-                <div class="h-2.5 rounded-full bg-ground overflow-hidden border border-line">
-                  <div class="h-full rounded-full bg-attribute-vaccine" style="width: 38%"></div>
-                </div>
-                <span class="text-right font-mono font-bold text-ink">380</span>
-              </div>
-            </div>
-
-            <button type="button" class="btn-add-team btn-primary w-full py-2.5 text-sm font-bold disabled:opacity-50 disabled:cursor-not-allowed">Ajouter à l'équipe</button>
           </section>
 
           <section id="team" aria-label="Mon équipe" class="flex flex-col gap-4 rounded-xl bg-surface p-4 sm:p-6 border-2 border-line shadow-lg">
@@ -191,7 +82,6 @@
           </section>
         </aside>
       </div>
-
       <section id="create" aria-label="Nouvelle créature" class="flex flex-col gap-6 rounded-xl bg-surface p-6 sm:p-8 border border-line shadow-lg">
         <div>
           <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-ink">Nouveau Digimon</h2>
@@ -200,23 +90,23 @@
 
         <form id="creature-form" novalidate class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
           <!-- Numéro -->
-          <label class="flex flex-col gap-1.5 text-xs font-bold text-ink"
-            >Numéro
-            <input name="id" type="text" placeholder="#013" class="field font-normal placeholder-muted" />
+          <label class="flex flex-col gap-1.5 text-xs font-bold text-ink">
+            Numéro
+            <input name="id" type="text" required placeholder="#013" class="field font-normal placeholder-muted" />
             <span class="error-message text-xs font-normal text-attribute-virus min-h-[16px]"></span>
           </label>
 
           <!-- Nom -->
-          <label class="flex flex-col gap-1.5 text-xs font-bold text-ink"
-            >Nom
-            <input name="name" type="text" placeholder="Nom du Digimon" class="field font-normal placeholder-muted" />
+          <label class="flex flex-col gap-1.5 text-xs font-bold text-ink">
+            Nom
+            <input name="name" type="text" required placeholder="Nom du Digimon" class="field font-normal placeholder-muted" />
             <span class="error-message text-xs font-normal text-attribute-virus min-h-[16px]"></span>
           </label>
 
           <!-- Attribut -->
-          <label class="flex flex-col gap-1.5 text-xs font-bold text-ink"
-            >Attribut
-            <select name="type" class="field font-normal text-ink">
+          <label class="flex flex-col gap-1.5 text-xs font-bold text-ink">
+            Attribut
+            <select name="type" required class="field font-normal text-ink">
               <option value="" class="bg-surface text-ink">Choisir un attribut</option>
               <option value="Vaccine" class="bg-surface text-ink">Vaccine</option>
               <option value="Data" class="bg-surface text-ink">Data</option>
@@ -225,44 +115,50 @@
             <span class="error-message text-xs font-normal text-attribute-virus min-h-[16px]"></span>
           </label>
 
-          <!-- Niveau -->
-          <label class="flex flex-col gap-1.5 text-xs font-bold text-ink"
-            >Niveau
-            <input name="level" type="text" placeholder="Rookie, Champion..." class="field font-normal placeholder-muted" />
+          <!-- Niveau (تم تصحيح name="level") -->
+          <label class="flex flex-col gap-1.5 text-xs font-bold text-ink">
+            Niveau
+            <select name="level" required class="field font-normal text-ink">
+              <option value="" class="bg-surface text-ink">Choisir un niveau</option>
+              <option value="Rookie" class="bg-surface text-ink">Rookie</option>
+              <option value="Champion" class="bg-surface text-ink">Champion</option>
+              <option value="Ultimate" class="bg-surface text-ink">Ultimate</option>
+              <option value="Mega" class="bg-surface text-ink">Mega</option>
+            </select>
             <span class="error-message text-xs font-normal text-attribute-virus min-h-[16px]"></span>
           </label>
 
           <!-- Statistique 1 -->
-          <label class="flex flex-col gap-1.5 text-xs font-bold text-ink"
-            >Puissance (0 à 999)
+          <label class="flex flex-col gap-1.5 text-xs font-bold text-ink">
+            Puissance (0 à 999)
             <input name="stat1" type="text" placeholder="ex. 450" class="field font-normal placeholder-muted" />
             <span class="error-message text-xs font-normal text-attribute-virus min-h-[16px]"></span>
           </label>
 
           <!-- Statistique 2 -->
-          <label class="flex flex-col gap-1.5 text-xs font-bold text-ink"
-            >Défense (0 à 999)
+          <label class="flex flex-col gap-1.5 text-xs font-bold text-ink">
+            Défense (0 à 999)
             <input name="stat2" type="text" placeholder="ex. 320" class="field font-normal placeholder-muted" />
             <span class="error-message text-xs font-normal text-attribute-virus min-h-[16px]"></span>
           </label>
 
           <!-- Statistique 3 -->
-          <label class="flex flex-col gap-1.5 text-xs font-bold text-ink"
-            >Vitesse (0 à 999)
+          <label class="flex flex-col gap-1.5 text-xs font-bold text-ink">
+            Vitesse (0 à 999)
             <input name="stat3" type="text" placeholder="ex. 380" class="field font-normal placeholder-muted" />
             <span class="error-message text-xs font-normal text-attribute-virus min-h-[16px]"></span>
           </label>
 
           <!-- Lien Image -->
-          <label class="flex flex-col gap-1.5 text-xs font-bold text-ink"
-            >Lien de l'image
+          <label class="flex flex-col gap-1.5 text-xs font-bold text-ink">
+            Lien de l'image
             <input name="image" type="text" placeholder="https://…/image.png" class="field font-normal placeholder-muted" />
             <span class="error-message text-xs font-normal text-attribute-virus min-h-[16px]"></span>
           </label>
 
           <!-- Description -->
-          <label class="flex flex-col gap-1.5 text-xs font-bold text-ink col-span-full"
-            >Description
+          <label class="flex flex-col gap-1.5 text-xs font-bold text-ink col-span-full">
+            Description
             <textarea name="description" rows="3" placeholder="10 à 200 caractères" class="w-full rounded-xl border-2 border-line bg-surface p-3 text-sm text-ink font-normal placeholder-muted outline-none transition-all duration-200 focus:border-brand"></textarea>
             <span class="error-message text-xs font-normal text-attribute-virus min-h-[16px]"></span>
           </label>
@@ -279,7 +175,8 @@
     <footer class="mx-auto text-center max-w-7xl px-4 sm:px-8 pb-10 text-xs text-muted">ESSAADI CHARAF EDDINE</footer>
 
     <!-- Scripts JS -->
-    <script src="./data.js"></script>
-    <script src="./script.js"></script>
+    <script src="./data.js" defer></script>
+    <script src="./script.js" defer></script>
+    
   </body>
 </html>
